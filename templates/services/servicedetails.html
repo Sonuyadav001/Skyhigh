@@ -1,0 +1,152 @@
+
+
+<!-- templates/services/servicedetails.html -->
+{% extends 'base/base.html' %} 
+
+{% block content %}
+<!-- main-area -->
+<main>
+    <!-- breadcrumb-area -->
+<section class="breadcrumb-area d-flex align-items-center" style="background-image:url({% if service.hero_image %}{{ service.hero_image.url }}{% else %}{{ MEDIA_URL }}service_images/default.png{% endif %});">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="breadcrumb-wrap text-left">
+                        <div class="breadcrumb-title">
+                            <h2>{{ service.title }}</h2>
+                            <h4>{{ service.description }}</h4>
+                                                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb-area-end -->
+
+    <!-- service-details-area -->
+    <div class="about-area5 about-p p-relative">
+        <div class="container pt-120 pb-90">
+            <div class="row">
+                <!-- #right side -->
+                <div class="col-sm-12 col-md-12 col-lg-4 order-1">
+                    <aside class="sidebar services-sidebar">
+                        <!-- Category Widget -->
+                        <div class="sidebar-widget categories">
+                            <div class="widget-content">
+                                <!-- Services Category -->
+                                <ul class="services-categories">
+                                    {% for s in all_services %}
+                                    <li class="{% if s.id == service.id %}active{% endif %}">
+                                        <a href="{% url 'service_detail' s.id %}">{{ s.title }}</a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Brochures Box -->
+
+
+{% include 'services/brochures.html' with brochures=brochures %}
+
+
+                    </aside>
+                </div>
+                <!-- #right side end -->
+
+               
+                <!-- #content -->
+                <div class="col-lg-8 col-md-12 col-sm-12 order-2">
+                    <div class="service-detail">
+                        <div class="">
+                            <h2>{{ service.title }}</h2>
+                            <div class="service-content">
+                                {{ service.content|safe }}
+                            </div>
+<br>
+
+                            <!-- Sub-Services in Card Format -->
+                            <div class="row">
+                                {% for sub_service in service.sub_services.all %}
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <div class="sub-service-card" data-bs-toggle="modal" data-bs-target="#subServiceModal{{ sub_service.id }}">
+                                        {% if sub_service.images.first %}
+                                        <img src="{{ sub_service.images.first.image.url }}" alt="{{ sub_service.title }}" class="img-fluid">
+                                        {% endif %}
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ sub_service.title }}</h5>
+                                            <p class="card-text">{{ sub_service.description|striptags|truncatechars:100 }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- #content end -->
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <!-- service-details-area-end -->
+</main>
+
+
+<!-- Sub-Service Modals -->
+{% for sub_service in service.sub_services.all %}
+<div class="modal fade" id="subServiceModal{{ sub_service.id }}" tabindex="-1" aria-labelledby="subServiceModalLabel{{ sub_service.id }}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="subServiceModalLabel{{ sub_service.id }}">{{ sub_service.title }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row h-100">
+                    <!-- Left Side: Sub-Service Image Gallery -->
+                    <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
+                        <div class="gallery text-center">
+                            {% if sub_service.images.first %}
+                            <div class="main-image mb-3">
+                                <img src="{{ sub_service.images.first.image.url }}" alt="{{ sub_service.title }}" class="img-fluid">
+                            </div>
+                            {% endif %}
+                            <div class="thumbnail-gallery d-flex justify-content-center flex-wrap">
+                                {% for image in sub_service.images.all|slice:":5" %}
+                                <img src="{{ image.image.url }}" alt="{{ sub_service.title }}" class="img-thumbnail m-1" onclick="changeMainImage('{{ image.image.url }}')">
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Side: Sub-Service Description -->
+      <div class="col-md-6">
+    <div class="sub-service-description text-start">
+        {{ sub_service.description|safe }}
+    </div>
+</div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+
+<!-- JavaScript to Handle Image Gallery -->
+<script>
+    function changeMainImage(src) {
+        document.querySelector('.main-image img').src = src;
+    }
+</script>
+{% include 'main/newslater_area.html' %}
+
+{% endblock %}

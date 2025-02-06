@@ -1,0 +1,73 @@
+{% extends 'base/base.html' %}
+{% block content %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+<section class="inner-blog b-details-p pt-120 pb-105">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="profile-card d-flex flex-column align-items-center p-4 shadow-lg rounded" 
+            style="background-color: #222; 
+            color: white; 
+            text-align: center; 
+            border-radius: 10px; 
+            box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.7);
+            border: 2px solid transparent;
+            border-image: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(229, 0, 0, 1) 35%, rgba(25, 25, 101, 1) 100%);
+            border-image-slice: 1;">
+          
+          <!-- Profile Image -->
+          <img class="rounded-circle account-img mb-3" 
+               src="{{ user.profile.image.url }}" 
+               onerror="this.src='{% static 'default.jpg' %}';" 
+               alt="Profile Image" 
+               style="width: 120px; height: 120px; border: 3px solid white;">
+          
+          <!-- User Info -->
+          <h2 class="account-heading" style="font-size: 1.5rem; font-weight: bold;">{{ user.username }}</h2>
+          <p class="text-light" style="font-size: 1rem;">{{ user.email }}</p>
+          
+        </div>
+
+        <!-- Profile Update Form -->
+        <div class="content-section mt-4 p-4 bg-dark shadow-sm rounded">
+          <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+              <legend class="border-bottom mb-4" style="font-size: 1.2rem; font-weight: bold;">Update Profile</legend>
+              {{ u_form|crispy }}
+              {{ p_form|crispy }}
+            </fieldset>
+            
+            <style>
+              .file-upload-clear, .file-upload a {
+                color: black !important;
+                font-weight: bold;
+              }
+              .text-break.flex-grow-1 {
+                color: black !important;
+                font-weight: bold;
+                background-color: #e0e0e0;
+                padding: 5px 10px;
+                border-radius: 5px;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                white-space: normal;
+                flex-grow: 1;
+              }
+            </style>
+            
+            <!-- Buttons -->
+            <div class="form-group d-flex justify-content-end gap-3">
+              <button class="btn ss-btn" type="submit">Update</button>
+              <a href="{% url 'logout' %}" class="btn ss-btn">Logout</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

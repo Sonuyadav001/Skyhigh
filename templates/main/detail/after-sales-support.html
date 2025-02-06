@@ -1,0 +1,156 @@
+{% load static %}
+
+<header 
+  class="hero-section" 
+  style="background-image: url('{% static "img/services/banner2.png" %}');"
+>
+  <h1 class="display-4">After-Sales Support by Sky High</h1>
+  <p class="">
+    Dedicated Support to Drive Your Brand's Continued Growth and Success.
+  </p>
+</header>
+
+
+
+
+<main class="container py-5">
+  <section class="mb-5">
+    
+    <p class="text-center">
+        At Sky High, our commitment to your success doesn’t end when your products leave our facility. With our After-Sales Support services, we ensure your journey continues seamlessly, providing expert assistance to address challenges, adapt to market needs, and enhance customer satisfaction.
+    </p>
+  </section>
+
+  <section class="mb-5">
+    <h2 class="text-center mb-4">Our Expertise in After-Sales Support</h2>
+    <p class="text-center">
+        Launching a product is just the beginning. Sky High offers tailored after-sales services to help you troubleshoot issues, refine your offerings, and respond to market feedback. With our proactive approach, we empower your brand to thrive in a competitive environment.
+    </p>
+  </section>
+
+  <section class="category-section">
+    <h2 class="text-center mb-5">
+        Our After-Sales Support Services
+    </h2>
+    <div class="row g-4">
+        <!-- Troubleshooting & Client Support -->
+        <div class="col-md-4">
+          <div
+            class="card"
+            onclick="showDetails('Troubleshooting & Client Support', ['Product Issue Resolution: Assistance in identifying and addressing product-related concerns, such as performance, stability, or customer usage issues.', 'Ongoing Support: Dedicated client service to provide prompt and effective solutions to your queries and concerns.', 'Customer Feedback Management: Guidance on analyzing and responding to customer feedback to improve satisfaction and loyalty.'], '{% static "img/services/productmock.png" %}')"
+          >
+            <img src="{% static 'img/services/productmock.png' %}" alt="Troubleshooting & Client Support" />
+            <div class="card-body">
+              <h4>Troubleshooting & Cl..</h4>
+              <ul>
+                <li>Product Issue Resolution: Assistance in identifying and addressing product-related concerns, such as performance, stability, or customer usage issues.</li>
+                <li>Ongoing Support: Dedicated client service to provide prompt and effective solutions to your queries and concerns.</li>
+                 
+            </ul>
+              <div class="blog-btn">
+                <a href="#" onclick="return false;" aria-label="Read more about this service">
+                  <i class="fas fa-angle-right"></i> Read More
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Post-Launch Consultation -->
+        <div class="col-md-4">
+          <div
+            class="card"
+            onclick="showDetails('Post-Launch Consultation', ['Formulation Adjustments: Tailored recommendations to tweak formulations based on real-world performance and market feedback.', 'Packaging Refinements: Suggestions for improving packaging designs, functionality, or sustainability to better align with customer preferences.', 'Market Trend Analysis: Insights into emerging trends and opportunities to keep your product range competitive and relevant.'], '{% static "img/services/productmock.png" %}')"
+          >
+            <img src="{% static 'img/services/productmock.png' %}" alt="Post-Launch Consultation" />
+            <div class="card-body">
+              <h4>Post-Launch Consul..</h4>
+              <ul>
+                <li>Formulation Adjustments: Tailored recommendations to tweak formulations based on real-world performance and market feedback.</li>
+                <li>Packaging Refinements: Suggestions for improving packaging designs, functionality, or sustainability to better align with customer preferences.</li>
+                 
+            </ul>
+              <div class="blog-btn">
+                <a href="#" onclick="return false;" aria-label="Read more about this service">
+                  <i class="fas fa-angle-right"></i> Read More
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+  </section>
+<br>
+
+<section class="info-section light-theme">
+    <h2 class="info-title" style="color: #333;">
+        Sky High After-Sales 
+    </h2>
+    <ul class="info-list">
+      <li>
+        <strong>Proactive Assistance:</strong> We work closely with you to anticipate and address potential challenges, ensuring smooth operations post-launch.
+      </li>
+      <li>
+        <strong>Customer-Centric Approach:</strong>Our services focus on improving customer experience and satisfaction, helping you build a loyal customer base.
+      </li>
+      <li>
+        <strong>Flexibility & Adaptability:</strong>We help you make data-driven adjustments to formulations, packaging, or strategies as needed.
+      </li>
+      <li>
+        <strong>Long-Term Partnership: </strong>Beyond manufacturing, we’re your partner in growth, success, and continuous improvement.
+    </ul>
+  </section>
+  
+  <section class="info-section dark-theme">
+    <h2 class="info-title">
+      How We Work
+    </h2>
+    <ul class="info-list">
+      <li>
+        <p>1. Feedback Collection: Collaborate with you to gather and analyze market and customer feedback.</p>
+      <li>
+        <p>2. Issue Resolution: Provide actionable solutions for any product or customer concerns.</p>
+      </li>
+      <li>
+        <p>3. Performance Optimization: Recommend adjustments to formulations or packaging based on real-world performance and trends.</p>
+      </li>
+      <li>
+        <p>4. Continuous Support: Stay connected to offer ongoing guidance and consultation for sustained success.</p>
+      </li>
+    </ul>
+  </section>
+  
+  
+
+</main>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="productModal"
+  tabindex="-1"
+  aria-labelledby="productModalLabel"
+  inert
+>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel" tabindex="0">Product Details</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <img id="modalImage" src="" alt="Product Image" />
+        <h4 class="modal-title" id="modalTitle"></h4>
+        <ul id="modalList"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+

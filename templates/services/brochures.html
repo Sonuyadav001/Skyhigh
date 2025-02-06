@@ -1,0 +1,19 @@
+<div class="brochures-box">
+  <div class="inner">
+    <h4>Download Brochures</h4>
+    <div class="text">
+      Pleasure and praising pain was born and I will give you a complete
+      account.
+    </div>
+
+    {% for brochure in brochures %}
+    <a class="theme-btn btn-style-one" href="{{ brochure.file.url }}" download>
+      <span class="btn-title">
+        <i class="fa fa-file-pdf"></i> {{ brochure.title }}
+      </span>
+    </a>
+    {% empty %}
+    <p>No brochures available.</p>
+    {% endfor %}
+  </div>
+</div>

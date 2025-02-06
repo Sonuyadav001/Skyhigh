@@ -1,0 +1,203 @@
+{% load static %}
+
+<header 
+  class="hero-section" 
+  style="background-image: url('{% static "img/services/banner2.png" %}');"
+>
+  <h1 class="display-4">Body Care Solutions by Sky High</h1>
+  <p class="">
+    Custom Body Care Solutions Crafted for Your Brand's Success.
+  </p>
+</header>
+
+
+
+
+<main class="container py-5">
+  <section class="mb-5">
+    
+    <p class="text-center">
+        At Sky High, we specialize in manufacturing high-quality body care products that nurture, protect, and pamper the skin. As a trusted OEM (Original Equipment Manufacturer), we collaborate with brands to create innovative and effective body care solutions that cater to the diverse needs of customers worldwide.
+    </p>
+  </section>
+
+  <section class="mb-5">
+    <h2 class="text-center mb-4">Our Expertise in Body Care Manufacturing</h2>
+    <p class="text-center">
+        Body care goes beyond skin deep—it’s about providing comfort, confidence, and a touch of indulgence. With a commitment to excellence, we develop a wide range of body care products, combining premium ingredients with cutting-edge formulations to deliver exceptional results.
+    </p>
+  </section>
+
+  <section class="category-section">
+    <h2 class="text-center mb-5">
+        Categories of Body Care Products We Manufacture
+    </h2>
+
+    <div class="row g-4">
+  <!-- Body Lotions & Creams -->
+  <div class="col-md-4">
+    <div
+      class="card"
+      onclick="showDetails('Body Lotions & Creams', ['Hydrating Formulas: Deeply moisturizes and replenishes dry skin, leaving it soft and smooth.', 'Firming Creams: Formulated to enhance skin elasticity and firmness.', 'Stretch Mark Prevention: Gentle yet effective solutions to nourish and support the skin during times of change.'], '{% static "img/services/productmock.png" %}')"
+    >
+      <img src="{% static 'img/services/productmock.png' %}" alt="Body Lotions & Creams" />
+      <div class="card-body">
+        <h4>Body Lotions & Creams</h4>
+        <ul>
+          <li>Hydrating Formulas: Deeply moisturizes and replenishes dry skin, leaving it soft and smooth.</li>
+          <li>Firming Creams: Formulated to enhance skin elasticity and firmness.</li>
+         
+        </ul>
+        <div class="blog-btn">
+          <a href="#" onclick="return false;" aria-label="Read more about this product">
+            <i class="fas fa-angle-right"></i> Read More
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Body Washes & Scrubs -->
+  <div class="col-md-4">
+    <div
+      class="card"
+      onclick="showDetails('Body Washes & Scrubs', ['Shower Gels: Luxurious, lather-rich cleansers for refreshed and revitalized skin.', 'Exfoliating Scrubs: Gentle scrubs to remove dead skin cells and improve skin texture.', 'Cream Washes: Creamy, nourishing formulas for a spa-like shower experience.'], '{% static "img/services/productmock.png" %}')"
+    >
+      <img src="{% static 'img/services/productmock.png' %}" alt="Body Washes & Scrubs" />
+      <div class="card-body">
+        <h4>Body Washes & Scrubs</h4>
+        <ul>
+          <li>Shower Gels: Luxurious, lather-rich cleansers for refreshed and revitalized skin.</li>
+          <li>Exfoliating Scrubs: Gentle scrubs to remove dead skin cells and improve skin texture.</li>
+          
+        </ul>
+        <div class="blog-btn">
+          <a href="#" onclick="return false;" aria-label="Read more about this product">
+            <i class="fas fa-angle-right"></i> Read More
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Hand & Foot Care -->
+  <div class="col-md-4">
+    <div
+      class="card"
+      onclick="showDetails('Hand & Foot Care', ['Hand Creams: Enriched formulas to hydrate, repair, and protect the hands from dryness and environmental damage.', 'Foot Balms: Soothing and nourishing balms to relieve dryness and roughness.', 'Exfoliating Foot Scrubs: Designed to gently exfoliate and rejuvenate tired feet.'], '{% static "img/services/productmock.png" %}')"
+    >
+      <img src="{% static 'img/services/productmock.png' %}" alt="Hand & Foot Care" />
+      <div class="card-body">
+        <h4>Hand & Foot Care</h4>
+        <ul>
+          <li>Hand Creams: Enriched formulas to hydrate, repair, and protect the hands from dryness and environmental damage.</li>
+          <li>Foot Balms: Soothing and nourishing balms to relieve dryness and roughness.</li>
+          
+        </ul>
+        <div class="blog-btn">
+          <a href="#" onclick="return false;" aria-label="Read more about this product">
+            <i class="fas fa-angle-right"></i> Read More
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Deodorants & Antiperspirants -->
+  <div class="col-md-4">
+    <div
+      class="card"
+      onclick="showDetails('Deodorants & Antiperspirants', ['Roll-Ons: Smooth and long-lasting protection against odor and sweat.', 'Sprays: Refreshing and quick-drying options for all-day freshness.', 'Creams: Gentle yet effective formulas for sensitive skin.', 'Natural Deodorants: Free from harsh chemicals, perfect for eco-conscious customers.'], '{% static "img/services/productmock.png" %}')"
+    >
+      <img src="{% static 'img/services/productmock.png' %}" alt="Deodorants & Antiperspirants" />
+      <div class="card-body">
+        <h4>Deodorants & Anti..</h4>
+        <ul>
+          <li>Roll-Ons: Smooth and long-lasting protection against odor and sweat.</li>
+          <li>Sprays: Refreshing and quick-drying options for all-day freshness.</li>
+
+        
+        </ul>
+        <div class="blog-btn">
+          <a href="#" onclick="return false;" aria-label="Read more about this product">
+            <i class="fas fa-angle-right"></i> Read More
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+  </section>
+<br>
+
+<section class="info-section light-theme">
+    <h2 class="info-title" style="color: #333;">
+        Why Choose Sky High for Body Care?
+    </h2>
+    <ul class="info-list">
+      <li>
+        <strong>Customization:</strong> We work with you to create unique formulations and designs that reflect your brand’s identity.
+      </li>
+      <li>
+        <strong>Uncompromising Quality:</strong> Our products meet the highest safety and quality standards, ensuring superior performance.
+      </li>
+      <li>
+        <strong>Innovation:</strong> We stay ahead of trends, delivering modern and in-demand body care solutions.
+      </li>
+      <li>
+        <strong>Flexible Manufacturing:</strong> From boutique lines to large-scale production, we accommodate your business needs.
+    </ul>
+  </section>
+  
+  <section class="info-section dark-theme">
+    <h2 class="info-title">
+      How We Work
+    </h2>
+    <ul class="info-list">
+      <li>
+        <p>1. Concept Development: Share your ideas, and we’ll bring them to life with customized product development.</p>
+      </li>
+      <li>
+        <p>2. Formulation & Testing: Our R&D team creates and rigorously tests formulas to ensure they meet your expectations.</p>
+      </li>
+      <li>
+        <p>3. Manufacturing & Packaging: Using advanced technology, we manufacture and package your products to perfection.</p>
+      </li>
+      <li>
+        <p>4. Delivery: We ensure timely and secure delivery of your products, ready for your customers.</p>
+      </li>
+    </ul>
+  </section>
+  
+  
+
+</main>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="productModal"
+  tabindex="-1"
+  aria-labelledby="productModalLabel"
+  inert
+>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel" tabindex="0">Product Details</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <img id="modalImage" src="" alt="Product Image" />
+        <h4 class="modal-title" id="modalTitle"></h4>
+        <ul id="modalList"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
