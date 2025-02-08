@@ -1,2 +1,0 @@
-# Skyhigh
-web project
