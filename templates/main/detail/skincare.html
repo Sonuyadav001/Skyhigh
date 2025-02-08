@@ -1,0 +1,323 @@
+{% load static %}
+
+<header 
+  class="hero-section" 
+  style="background-image: url('{% static "img/services/banner2.png" %}');"
+>
+  <h1 class="display-4">Skincare Solutions by Sky High</h1>
+  <p class="">
+    Your trusted OEM partner for high-quality skincare products tailored to your brand's vision.
+  </p>
+</header>
+
+
+
+
+<main class="container py-5">
+  <section class="mb-5">
+    <h2 class="text-center mb-4">Our Expertise in Skincare Manufacturing</h2>
+    <p class="text-center">
+      At Sky High, we understand that skincare is more than just beauty; it’s
+      about wellness and confidence. Our state-of-the-art facilities and expert
+      team deliver safe, effective, and innovative skincare products catering to
+      diverse needs.
+    </p>
+  </section>
+
+  <section class="category-section">
+    <h2 class="text-center mb-5">
+      Categories of Skincare Products We Manufacture
+    </h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div
+          class="card"
+          onclick="showDetails('Facial Cleansers', ['Gel, Foam, and Cream-based cleansers for gentle yet effective cleansing.', 'Micellar waters for all-in-one makeup removal and skin hydration.'], '{% static "img/services/productmock.png" %}')"
+        >
+          <img
+            src="{% static 'img/services/productmock.png' %}"
+            alt="Facial Cleansers"
+          />
+          <div class="card-body">
+            <h4>Facial Cleansers</h4>
+            <ul>
+              <li>Gel, Foam, and Cream-based cleansers...</li>
+              <li>Micellar waters for all-in-one...</li>
+            </ul>
+
+            <div class="blog-btn">
+              <a
+                href="#"
+                onclick="return false;"
+                aria-label="Read more about this product"
+              >
+                <i class="fas fa-angle-right"></i> Read More
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div
+          class="card"
+          onclick="showDetails('Toners', ['Hydrating formulas to replenish and soothe the skin.', 'Alcohol-free options for sensitive and dry skin types.'], '{% static "img/services/productmock.png" %}')"
+        >
+          <img src="{% static 'img/services/productmock.png' %}" alt="Toners" />
+          <div class="card-body">
+            <h4>Toners</h4>
+            <ul>
+              <li>Hydrating formulas to replenish...</li>
+              <li>Alcohol-free options for sensitive...</li>
+            </ul>
+            <div class="blog-btn">
+              <a
+                href="#"
+                onclick="return false;"
+                aria-label="Read more about this product"
+              >
+                <i class="fas fa-angle-right"></i> Read More
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div
+          class="card"
+          onclick="showDetails('Serums', ['Anti-aging serums to reduce fine lines and wrinkles.', 'Brightening serums for radiant, glowing skin.', 'Hydrating serums to combat dryness.', 'Acne treatment serums to target breakouts and blemishes.'], '{% static "img/services/productmock.png" %}')"
+        >
+          <img src="{% static 'img/services/productmock.png' %}" alt="Serums" />
+          <div class="card-body">
+            <h4>Serums</h4>
+            <ul>
+              <li>Anti-aging serums to reduce...</li>
+              <li>Brightening serums for radiant...</li>
+            </ul>
+            <div class="blog-btn">
+              <a
+                href="#"
+                onclick="return false;"
+                aria-label="Read more about this product"
+              >
+                <i class="fas fa-angle-right"></i> Read More
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div
+          class="card"
+          onclick="showDetails('Moisturizers', ['Lightweight day creams for hydration throughout the day.', 'Rich night creams to nourish and repair skin overnight.', 'Gel-based and oil-free options for oily and combination skin.'], '{% static "img/services/productmock.png" %}')"
+        >
+          <img
+            src="{% static 'img/services/productmock.png' %}"
+            alt="Moisturizers"
+          />
+          <div class="card-body">
+            <h4>Moisturizers</h4>
+            <ul>
+              <li>Lightweight day creams for...</li>
+              <li>Rich night creams to nourish...</li>
+            </ul>
+            <div class="blog-btn">
+              <a
+                href="#"
+                onclick="return false;"
+                aria-label="Read more about this product"
+              >
+                <i class="fas fa-angle-right"></i> Read More
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div
+          class="card"
+          onclick="showDetails('Face Masks', ['Clay masks for deep cleansing and detoxifying.', 'Peel-off masks for exfoliation and rejuvenation.', 'Gel masks to soothe and refresh the skin.'], '{% static "img/services/productmock.png" %}')"
+        >
+          <img
+            src="{% static 'img/services/productmock.png' %}"
+            alt="Face Masks"
+          />
+          <div class="card-body">
+            <h4>Face Masks</h4>
+            <ul>
+              <li>Clay masks for deep cleansing...</li>
+              <li>Peel-off masks for exfoliation...</li>
+            </ul>
+            <div class="blog-btn">
+              <a
+                href="#"
+                onclick="return false;"
+                aria-label="Read more about this product"
+              >
+                <i class="fas fa-angle-right"></i> Read More
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div
+          class="card"
+          onclick="showDetails('Exfoliators', ['Gentle yet effective scrubs for removing dead skin cells and impurities.'], '{% static "img/services/productmock.png" %}')"
+        >
+          <img
+            src="{% static 'img/services/productmock.png' %}"
+            alt="Exfoliators"
+          />
+          <div class="card-body">
+            <h4>Exfoliators</h4>
+            <ul>
+              <li>Gentle yet effective scrubs for...</li>
+            </ul>
+            <div class="blog-btn">
+              <a
+                href="#"
+                onclick="return false;"
+                aria-label="Read more about this product"
+              >
+                <i class="fas fa-angle-right"></i> Read More
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div
+          class="card"
+          onclick="showDetails('Sun Protection', ['Sunscreens in SPF 30, 50, and 80 for comprehensive UV protection.', 'After-sun lotions to soothe and heal sun-exposed skin.'], '{% static "img/services/productmock.png" %}')"
+        >
+          <img
+            src="{% static 'img/services/productmock.png' %}"
+            alt="Sun Protection"
+          />
+          <div class="card-body">
+            <h4>Sun Protection</h4>
+            <ul>
+              <li>Sunscreens in SPF 30, 50, and 80...</li>
+              <li>After-sun lotions to soothe...</li>
+            </ul>
+            <div class="blog-btn">
+              <a
+                href="#"
+                onclick="return false;"
+                aria-label="Read more about this product"
+              >
+                <i class="fas fa-angle-right"></i> Read More
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div
+        class="card"
+        onclick="showDetails(
+          'Facial Cleansers',
+          ['Gel, Foam, and Cream-based cleansers for gentle yet effective cleansing.', 'Micellar waters for all-in-one makeup removal and skin hydration.'],
+          '{% static "img/services/productmock.png" %}'
+        )"
+      >
+        <img src="{% static 'img/services/productmock.png' %}" alt="Facial Cleansers" />
+        <div class="card-body">
+          <h4>Facial Cleansers</h4>
+          <ul>
+            <li>Gel, Foam, and Cream-based cleansers...</li>
+            <li>Micellar waters for all-in-one...</li>
+          </ul>
+          <div class="blog-btn">
+            <a href="#" onclick="return false;" aria-label="Read more about this product">
+              <i class="fas fa-angle-right"></i> Read More
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      </div>
+
+      <!-- Add more cards for additional categories -->
+    </div>
+  </section>
+
+  <br>
+  <section class="info-section light-theme">
+    <h2 class="info-title" style="color: #333;">
+      WHY CHOOSE SKY HIGH FOR SKIN CARE
+    </h2>
+    <ul class="info-list">
+      <li>
+        <strong>Customization:</strong> We offer tailored formulations and packaging to align with your brand's identity.
+      </li>
+      <li>
+        <strong>Quality Assurance:</strong> Our products comply with international standards for safety and efficacy.
+      </li>
+      <li>
+        <strong>Innovation:</strong> We stay ahead of skincare trends, providing cutting-edge formulations to keep your brand competitive.
+      </li>
+      <li>
+        <strong>Scalability:</strong> From small-batch production to large-scale manufacturing, we cater to businesses of all sizes.
+      </li>
+    </ul>
+  </section>
+  
+  <section class="info-section dark-theme">
+    <h2 class="info-title">
+      How We Work
+    </h2>
+    <ul class="info-list">
+      <li>
+        <p>1. Concept Development: Share your vision, and we’ll help turn it into a tangible product.</p>
+      </li>
+      <li>
+        <p>2. Formulation & Testing: Our R&D team creates high-performance formulas, tested for safety and effectiveness.</p>
+      </li>
+      <li>
+        <p>3. Production & Packaging: Using advanced manufacturing techniques, we ensure a flawless finish to your products.</p>
+      </li>
+      <li>
+        <p>4. Delivery: We handle the logistics, delivering your products on time and in perfect condition.</p>
+      </li>
+    </ul>
+  </section>
+  
+
+  
+<!-- Modal -->
+<div
+class="modal fade"
+id="productModal"
+tabindex="-1"
+aria-labelledby="productModalLabel"
+inert
+>
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="productModalLabel" tabindex="0">Product Details</h5>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="modal-body">
+      <img id="modalImage" src="" alt="Product Image" />
+      <h4 class="modal-title" id="modalTitle"></h4>
+      <ul id="modalList"></ul>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+</main>

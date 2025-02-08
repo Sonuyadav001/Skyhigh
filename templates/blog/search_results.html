@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %} {% block content %}
+<section class="inner-blog b-details-p pt-120 pb-105">
+  <div class="container">
+    <h1>Search Results for "{{ query }}"</h1>
+    {% if posts %}
+    <div class="row">
+      {% for post in posts %}
+      <div class="col-lg-6 mb-4">
+        <div class="bsingle__post">
+          <div class="bsingle__post-thumb">
+            <a href="{% url 'post-detail' post.id %}">
+              <img src="{{ post.get_hero_image }}" alt="{{ post.title }}" />
+            </a>
+          </div>
+          <div class="bsingle__content">
+            <h2>
+              <a href="{% url 'post-detail' post.id %}">{{ post.title }}</a>
+            </h2>
+            <p>{{ post.content|truncatewords:30 }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p>No posts found matching your search query.</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

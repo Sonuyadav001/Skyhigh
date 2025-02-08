@@ -1,0 +1,243 @@
+{% load static %}
+
+<header 
+  class="hero-section" 
+  style="background-image: url('{% static "img/services/banner2.png" %}');"
+>
+  <h1 class="display-4">Haircare Solutions by Sky High</h1>
+  <p class="">
+    Expertly Crafted Formulations for Stronger, Healthier, and More Vibrant Hair, Designed to Meet Your Unique Needs.
+  </p>
+</header>
+
+
+
+
+<main class="container py-5">
+  <section class="mb-5">
+    
+    <p class="text-center">
+        At Sky High, we specialize in crafting premium-quality hair care products tailored to meet the diverse needs of your customers. As a trusted OEM (Original Equipment Manufacturer), we offer end-to-end solutions to help you create and expand your haircare brand with innovative formulations and exceptional quality.
+    </p>
+  </section>
+
+  <section class="mb-5">
+    <h2 class="text-center mb-4">Our Expertise in Haircare Manufacturing</h2>
+    <p class="text-center">
+        Healthy, beautiful hair starts with the right products, and at Sky High, we’re committed to delivering solutions that nourish, repair, and style hair effortlessly. Our team of experts leverages the latest advancements in haircare technology to develop products that cater to every hair type and concern.
+    </p>
+  </section>
+
+  <section class="category-section">
+    <h2 class="text-center mb-5">
+        Categories of Haircare Products We Manufacture
+    </h2>
+    <div class="row g-4">
+        <!-- Shampoos -->
+        <div class="col-md-4">
+          <div
+            class="card"
+            onclick="showDetails('Shampoos', ['Smoothing: Formulated to tame frizz and provide sleek, manageable hair.', 'Volumizing: Designed to boost volume and add body to fine, limp hair.', 'Color-Protecting: Gentle cleansers that preserve color vibrancy and shine.', 'Clarifying: Deep-cleaning shampoos to remove buildup and restore freshness.'], '{% static "img/services/productmock.png" %}')"
+          >
+            <img src="{% static 'img/services/productmock.png' %}" alt="Shampoos" />
+            <div class="card-body">
+              <h4>Shampoos</h4>
+              <ul>
+                <li>Smoothing: Formulated to tame frizz and provide sleek, manageable hair.</li>
+                <li>Volumizing: Designed to boost volume and add body to fine, limp hair.</li>
+
+              </ul>
+              <div class="blog-btn">
+                <a href="#" onclick="return false;" aria-label="Read more about this product">
+                  <i class="fas fa-angle-right"></i> Read More
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Conditioners -->
+        <div class="col-md-4">
+          <div
+            class="card"
+            onclick="showDetails('Conditioners', ['Hydrating: For deeply moisturized, silky, and soft hair.', 'Strengthening: To fortify hair strands and prevent breakage.', 'Color-Safe: Protects and prolongs the life of color-treated hair.'], '{% static "img/services/productmock.png" %}')"
+          >
+            <img src="{% static 'img/services/productmock.png' %}" alt="Conditioners" />
+            <div class="card-body">
+              <h4>Conditioners</h4>
+              <ul>
+                <li>Hydrating: For deeply moisturized, silky, and soft hair.</li>
+                <li>Strengthening: To fortify hair strands and prevent breakage.</li>
+
+              </ul>
+              <div class="blog-btn">
+                <a href="#" onclick="return false;" aria-label="Read more about this product">
+                  <i class="fas fa-angle-right"></i> Read More
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Hair Masks & Treatments -->
+        <div class="col-md-4">
+          <div
+            class="card"
+            onclick="showDetails('Hair Masks & Treatments', ['Deep Conditioning Masks: For intense hydration and nourishment.', 'Repair Masks: To restore damaged, brittle hair.', 'Protein Treatments: Strengthen and rebuild hair structure for healthier locks.'], '{% static "img/services/productmock.png" %}')"
+          >
+            <img src="{% static 'img/services/productmock.png' %}" alt="Hair Masks & Treatments" />
+            <div class="card-body">
+              <h4>Masks & Treatments</h4>
+              <ul>
+                <li>Deep Conditioning Masks: For intense hydration and nourishment.</li>
+                <li>Repair Masks: To restore damaged, brittle hair.</li>
+               
+              </ul>
+              <div class="blog-btn">
+                <a href="#" onclick="return false;" aria-label="Read more about this product">
+                  <i class="fas fa-angle-right"></i> Read More
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Hair Styling Products -->
+        <div class="col-md-4">
+          <div
+            class="card"
+            onclick="showDetails('Hair Styling Products', ['Gels: For flexible hold and sculpted styles.', 'Hairsprays: Lightweight and strong-hold options for long-lasting styles.', 'Serums: To add shine, control frizz, and protect from heat damage.', 'Mists: Lightweight formulas to refresh and enhance hair texture.'], '{% static "img/services/productmock.png" %}')"
+          >
+            <img src="{% static 'img/services/productmock.png' %}" alt="Hair Styling Products" />
+            <div class="card-body">
+              <h4>Hair Styling Products</h4>
+              <ul>
+                <li>Gels: For flexible hold and sculpted styles.</li>
+                <li>Hairsprays: Lightweight and strong-hold options for long-lasting styles.</li>
+
+              </ul>
+              <div class="blog-btn">
+                <a href="#" onclick="return false;" aria-label="Read more about this product">
+                  <i class="fas fa-angle-right"></i> Read More
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Hair Oils & Serums -->
+        <div class="col-md-4">
+          <div
+            class="card"
+            onclick="showDetails('Hair Oils & Serums', ['Argan Oil: Rich in nutrients to soften and strengthen hair.', 'Keratin-Infused Treatments: For smooth, shiny, and frizz-free hair.', 'Leave-In Treatments: Lightweight, nourishing solutions for hydration and repair.'], '{% static "img/services/productmock.png" %}')"
+          >
+            <img src="{% static 'img/services/productmock.png' %}" alt="Hair Oils & Serums" />
+            <div class="card-body">
+              <h4>Hair Oils & Serums</h4>
+              <ul>
+                <li>Argan Oil: Rich in nutrients to soften and strengthen hair.</li>
+                <li>Keratin-Infused Treatments: For smooth, shiny, and frizz-free hair.</li>
+
+              </ul>
+              <div class="blog-btn">
+                <a href="#" onclick="return false;" aria-label="Read more about this product">
+                  <i class="fas fa-angle-right"></i> Read More
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Scalp Treatments -->
+        <div class="col-md-4">
+          <div
+            class="card"
+            onclick="showDetails('Scalp Treatments', ['Dandruff Control: Formulated to soothe the scalp and reduce flakes while promoting a healthy environment for hair growth.'], '{% static "img/services/productmock.png" %}')"
+          >
+            <img src="{% static 'img/services/productmock.png' %}" alt="Scalp Treatments" />
+            <div class="card-body">
+              <h4>Scalp Treatments</h4>
+              <ul>
+                <li>Dandruff Control: Formulated to soothe the scalp and reduce flakes while promoting a healthy environment for hair growth.</li>
+              </ul>
+              <div class="blog-btn">
+                <a href="#" onclick="return false;" aria-label="Read more about this product">
+                  <i class="fas fa-angle-right"></i> Read More
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+  </section>
+<br>
+
+<section class="info-section light-theme">
+    <h2 class="info-title" style="color: #333;">
+      Why Choose Sky High for Haircare?
+    </h2>
+    <ul class="info-list">
+      <li>
+        <strong>Tailored Solutions:</strong> We collaborate with you to create customized formulas that align with your brand vision.
+      </li>
+      <li>
+        <strong>Premium Quality:</strong> All our products are manufactured using high-grade ingredients and meet rigorous quality standards.
+      </li>
+      <li>
+        <strong>Cutting-Edge Innovation:</strong> Our R&D team constantly innovates to bring you the latest in haircare trends and technology.
+      </li>
+      <li>
+        <strong>Scalable Production:</strong> From boutique-sized batches to large-scale manufacturing, we support businesses of all sizes.
+      </li>
+    </ul>
+  </section>
+  
+  <section class="info-section dark-theme">
+    <h2 class="info-title">
+      How We Work
+    </h2>
+    <ul class="info-list">
+      <li>
+        <p>1. Ideation & Consultation: Share your brand’s goals, and we’ll help you develop a tailored haircare range.</p>
+      </li>
+      <li>
+        <p>2. Formulation & Testing: Our formulations undergo stringent testing to ensure safety, efficacy, and superior performance.</p>
+      </li>
+      <li>
+        <p>3. Manufacturing & Packaging: Advanced manufacturing processes ensure flawless production and attractive packaging.</p>
+      </li>
+      <li>
+        <p>4. Delivery: We handle logistics to ensure your products arrive on time, ready to impress your customers.</p>
+      </li>
+    </ul>
+  </section>
+  
+  
+
+</main>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="productModal"
+  tabindex="-1"
+  aria-labelledby="productModalLabel"
+  inert
+>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel" tabindex="0">Product Details</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <img id="modalImage" src="" alt="Product Image" />
+        <h4 class="modal-title" id="modalTitle"></h4>
+        <ul id="modalList"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+

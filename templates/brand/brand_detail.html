@@ -1,0 +1,170 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<!-- main-area -->
+<main>
+    <!-- breadcrumb-area -->
+    <section class="breadcrumb-area d-flex align-items-center" style="background-image:url({% if brand.hero_image %}{{ brand.hero_image.url }}{% else %}{{ MEDIA_URL }}brand_images/default.png{% endif %});">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="breadcrumb-wrap text-left">
+                        <div class="breadcrumb-title">
+                            <h2>{{ brand.name }}</h2>
+                            <h4>{{ brand.slogan }}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb-area-end -->
+
+    <!-- brand-details-area -->
+    <div class="about-area5 about-p p-relative">
+        <div class="container pt-120 pb-90">
+            <div class="row">
+                <!-- #right side -->
+                <div class="col-sm-12 col-md-12 col-lg-4 order-1">
+                    <aside class="sidebar services-sidebar">
+                        <!-- Category Widget -->
+                        <div class="sidebar-widget categories">
+                            <div class="widget-content">
+                                <!-- Brands Category -->
+                                <ul class="services-categories">
+                                    {% for b in all_brands %}
+                                    <li class="{% if b.id == brand.id %}active{% endif %}">
+                                        <a href="{% url 'brand_detail' b.id %}">{{ b.name }}</a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Brochures Box -->
+                        {% include 'services/brochures.html' with brochures=brochures %}
+                    </aside>
+                </div>
+                <!-- #right side end -->
+
+                <!-- #content -->
+                <div class="col-lg-8 col-md-12 col-sm-12 order-2">
+                    <div class="brand-detail">
+                        <div class="brand-header">
+                            {% if brand.logo %}
+                                <img src="{{ brand.logo.url }}" alt="{{ brand.name }} Logo" class="brand-logo">
+                            {% else %}
+                                <img src="{{ MEDIA_URL }}brand_images/default.png" alt="Default Logo" class="brand-logo">
+                            {% endif %}
+                        </div>
+                        <br><br>
+                        <div class="service-content">
+                            {{ brand.content|safe }}
+                        </div>
+                        <br>
+
+                        <!-- Brand Gallery Section -->
+                        {% if brand.gallery.all %}
+                        <div class="brand-gallery mt-4">
+                            <h3>Gallery</h3>
+                            <div class="row">
+                                {% for image in brand.gallery.all %}
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <div class="gallery-item">
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{{ image.image.url }}">
+                                            <img src="{{ image.image.url }}" alt="{{ brand.name }}" class="img-fluid w-100" style="object-fit: cover; height: 200px;">
+                                        </a>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                <!-- #content end -->
+            </div>
+        </div>
+    </div>
+    <!-- brand-details-area-end -->
+</main>
+{% include 'main/newslater_area.html' %}
+
+<!-- Full-Screen Modal for Gallery -->
+<div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-close">
+                <h5 class="modal-title" id="galleryModalLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="modal-image-container">
+                    <img id="modalImage" src="" alt="{{ brand.name }}" class="img-fluid">
+                </div>
+                <div class="modal-navigation">
+                    <button id="prevButton" class="btn btn-secondary">&#10094;</button>
+                    <button id="nextButton" class="btn btn-secondary">&#10095;</button>
+                </div>
+                <div class="modal-thumbnails">
+                    {% for image in brand.gallery.all %}
+                    <img src="{{ image.image.url }}" alt="Thumbnail {{ forloop.counter }}" class="thumbnail" data-full-image="{{ image.image.url }}">
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Custom JavaScript for Modal Functionality -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const modal = document.getElementById('galleryModal');
+        const modalImage = document.getElementById('modalImage');
+        const prevButton = document.getElementById('prevButton');
+        const nextButton = document.getElementById('nextButton');
+        const thumbnails = document.querySelectorAll('.thumbnail');
+
+        let currentImageIndex = 0;
+        const images = Array.from(thumbnails).map(thumbnail => thumbnail.getAttribute('data-full-image'));
+
+        // Function to update the modal image
+        function updateModalImage(index) {
+            modalImage.src = images[index];
+            currentImageIndex = index;
+        }
+
+        // Event listener for thumbnail clicks
+        thumbnails.forEach((thumbnail, index) => {
+            thumbnail.addEventListener('click', () => {
+                updateModalImage(index);
+            });
+        });
+
+        // Event listener for previous button
+        prevButton.addEventListener('click', () => {
+            const prevIndex = (currentImageIndex - 1 + images.length) % images.length;
+            updateModalImage(prevIndex);
+        });
+
+        // Event listener for next button
+        nextButton.addEventListener('click', () => {
+            const nextIndex = (currentImageIndex + 1) % images.length;
+            updateModalImage(nextIndex);
+        });
+
+        // Event listener for gallery item clicks
+        document.querySelectorAll('.gallery-item a').forEach((link, index) => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                updateModalImage(index);
+            });
+        });
+    });
+</script>
+
+<!-- Scoped CSS for the modal only -->
+<style>
+
+</style>
+{% endblock %}
