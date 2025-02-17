@@ -1,0 +1,92 @@
+{% extends 'base/base.html' %} 
+{% load static %}
+{% block content %}
+<main>
+  <!-- breadcrumb-area -->
+
+     <section class="breadcrumb-area d-flex align-items-center" style="background-image:url({% static 'img/background/service.jpg' %});">
+
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-xl-12 col-lg-12">
+          <div class="breadcrumb-wrap text-left">
+            <div class="breadcrumb-title">
+              <h2>Sky High Skincare Solutions</h2>
+
+              <div class="breadcrumb-wrap">
+                 
+                            </div>
+              <div class="breadcrumb-wrap">
+     
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- breadcrumb-area-end -->
+
+
+
+
+
+
+
+<section id="blog" class="blog-area p-relative pt-120 pb-90 fix" style="background: #000;">
+    <div class="container">
+        <!-- Section Title -->
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <h2 class="text-center text-white">Our Services</h2><br>
+            </div>
+        </div>
+
+        <!-- Blog Posts -->
+        <div class="row">
+            {% for service in services %}
+            <div class="col-lg-4 col-md-6">
+                <div class="single-post2 mb-30 wow fadeInDown animated" data-animation="fadeInDown" data-delay=".{{ forloop.counter }}s">
+                    <div class="blog-thumb2">
+<a href="{% url 'service_detail' service.id %}">
+    {% if service.hero_image %}
+        <img src="{{ service.hero_image.url }}" alt="{{ service.title }}">
+    {% else %}
+        <img src="{{ MEDIA_URL }}service_images/default.png" alt="{{ service.title }}">
+    {% endif %}
+</a>
+                    </div>
+                    <div class="blog-content2">
+                        <h4 class="service-title">
+                            <a href="{% url 'service_detail' service.id %}">{{ service.title|truncatechars:30 }}</a>
+                        </h4>
+                        <p class="service-description">{{ service.description|safe|truncatechars:45 }}</p>
+                        <div class="blog-btn">
+                            <a href="{% url 'service_detail' service.id %}">
+                                <i class="fas fa-angle-right"></i> Read More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+  {% include 'main/newslater_area.html' %}
+
+
+
+
+
+
+
+
+
+
+
+</main>
+<!-- main-area-end -->
+
+{% endblock %}

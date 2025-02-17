@@ -1,0 +1,20 @@
+{% for reply in comments %}
+<div class="single__comment children mb-35">
+  <div class="comments-avatar">
+    <img
+      src="{{ reply.user.profile.image.url|default:'img/default_avatar.png' }}"
+      alt="{{ reply.user.username }}"
+    />
+  </div>
+  <div class="comment-text">
+    <div class="avatar-name mb-15">
+      <h6>{{ reply.user.username }}</h6>
+      <span>{{ reply.created_at|date:"F d, Y" }}</span>
+    </div>
+    <p>{{ reply.content }}</p>
+  </div>
+
+  <!-- Recursively include replies -->
+  {% include "comments/replies.html" with comments=reply.replies.all %}
+</div>
+{% endfor %}

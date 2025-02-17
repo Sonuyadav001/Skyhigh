@@ -1,0 +1,163 @@
+{% load static %}
+
+<header 
+  class="hero-section" 
+  style="background-image: url('{% static "img/services/banner2.png" %}');"
+>
+  <h1 class="display-4">Regulatory & Legal Services by Sky High</h1>
+  <p class="">
+    Ensuring Compliance and Confidence for Your Brand's Success.
+  </p>
+</header>
+
+
+
+
+<main class="container py-5">
+  <section class="mb-5">
+    
+    <p class="text-center">
+        At Sky High, we recognize that navigating the regulatory and legal landscape is a crucial aspect of launching and marketing cosmetic products. Our Regulatory & Legal Services are designed to provide you with expert guidance, ensuring your products meet local and international compliance requirements while safeguarding your intellectual property.
+    </p>
+  </section>
+
+  <section class="mb-5">
+    <h2 class="text-center mb-4">Our Expertise in Regulatory & Legal Services</h2>
+    <p class="text-center">
+        From product registration to trademark support, we assist our clients in every step of the process, enabling them to focus on building their brand while we handle the complexities of regulatory compliance and legal protection.
+    </p>
+  </section>
+
+  <section class="category-section">
+    <h2 class="text-center mb-5">
+        Categories of Regulatory & Legal Services We Offer
+    </h2>
+
+    <div class="row g-4">
+        <!-- Product Registration & Certification Assistance -->
+        <div class="col-md-4">
+          <div
+            class="card"
+            onclick="showDetails('Product Registration & Certification Assistance', ['Market Approvals: Guidance through the product registration and approval process for various markets, including FDA approvals.', 'Support for meeting global regulatory requirements to ensure your products are market-ready.', 'Compliance with Regulations: Assistance with adhering to local and international standards, including:', 'INCI Names: Proper labeling and listing of ingredients using International Nomenclature Cosmetic Ingredient names.', 'Ingredient Restrictions: Ensuring formulations comply with ingredient safety guidelines.', 'Testing Requirements: Support for clinical and laboratory testing to validate product safety and efficacy.'], '{% static "img/services/productmock.png" %}')"
+          >
+            <img src="{% static 'img/services/productmock.png' %}" alt="Product Registration & Certification Assistance" />
+            <div class="card-body">
+              <h4>Product Registration & Certification Assistance</h4>
+              <ul>
+                <li>Market Approvals: Guidance through the product registration and approval process for various markets, including FDA approvals.</li>
+                <li>Support for meeting global regulatory requirements to ensure your products are market-ready.</li>
+                
+                
+                </ul>
+              </ul>
+              <div class="blog-btn">
+                <a href="#" onclick="return false;" aria-label="Read more about this service">
+                  <i class="fas fa-angle-right"></i> Read More
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Intellectual Property (IP) & Trademark Support -->
+        <div class="col-md-4">
+          <div
+            class="card"
+            onclick="showDetails('Intellectual Property (IP) & Trademark Support', ['Protect Your Brand: Assistance with registering trademarks and patents to secure your brand identity and product innovations.', 'Expert Guidance: Advice on intellectual property laws to ensure your products and packaging are legally protected.', 'Market Exclusivity: Strategies to safeguard your competitive edge in the market by preventing unauthorized use of your IP.'], '{% static "img/services/productmock.png" %}')"
+          >
+            <img src="{% static 'img/services/productmock.png' %}" alt="Intellectual Property (IP) & Trademark Support" />
+            <div class="card-body">
+              <h4>Intellectual Property (IP) & Trademark Support</h4>
+              <ul>
+                <li>Protect Your Brand: Assistance with registering trademarks and patents to secure your brand identity and product innovations.</li>
+                <li>Expert Guidance: Advice on intellectual property laws to ensure your products and packaging are legally protected.</li>
+                  
+            </ul>
+              <div class="blog-btn">
+                <a href="#" onclick="return false;" aria-label="Read more about this service">
+                  <i class="fas fa-angle-right"></i> Read More
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        
+      </div>
+      
+      
+  </section>
+<br>
+
+<section class="info-section light-theme">
+    <h2 class="info-title" style="color: #333;">
+        Why Choose Sky High for Regulatory & Legal Services?
+    </h2>
+    <ul class="info-list">
+      <li>
+        <strong>Expert Knowledge:</strong> Our team stays updated on the latest regulatory changes and industry standards, ensuring your products meet all requirements.
+      </li>
+      <li>
+        <strong>Streamlined Processes: </strong>We simplify complex procedures, saving you time and resources while ensuring accuracy and compliance.
+      </li>
+      <li>
+        <strong>Comprehensive Support:</strong>From ingredient compliance to trademark registration, we provide end-to-end assistance tailored to your needs.
+      </li>
+      <li>
+        <strong>Global Reach:</strong> Our expertise spans multiple markets, helping your brand achieve international success.
+    </ul>
+  </section>
+  
+  <section class="info-section dark-theme">
+    <h2 class="info-title">
+      How We Work
+    </h2>
+    <ul class="info-list">
+      <li>
+        <p>1. Consultation: Understand your regulatory needs and identify the necessary approvals for your target market.</p>
+      <li>
+        <p>2. Documentation & Testing: Assist with preparing and submitting required documentation and arranging testing as per regulations.</p>
+      </li>
+      <li>
+        <p>3. Registration & Certification: Guide you through the registration process for smooth approval of your products.</p>
+      </li>
+      <li>
+        <p>4. IP & Trademark Protection: Help you secure intellectual property rights to protect your brand and products.</p>
+      </li>
+    </ul>
+  </section>
+  
+  
+
+</main>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="productModal"
+  tabindex="-1"
+  aria-labelledby="productModalLabel"
+  inert
+>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel" tabindex="0">Product Details</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <img id="modalImage" src="" alt="Product Image" />
+        <h4 class="modal-title" id="modalTitle"></h4>
+        <ul id="modalList"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+

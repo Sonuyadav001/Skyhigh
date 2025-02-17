@@ -1,0 +1,321 @@
+{% extends 'base/base.html' %} {% block content %} {% load static %}
+
+<!-- header -->
+<style>
+  .single__comment.children {
+    margin-left: 40px;
+   
+    padding-left: 15px;
+  }
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; /* Optional: Center the image */
+}
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; /* Optional: Center the image */
+}
+
+</style>
+<!-- header-end -->
+
+<!-- main-area -->
+
+
+<main>
+  <!-- search-popup -->
+
+  <!-- /search-popup -->
+
+<!-- breadcrumb-area -->
+<!-- breadcrumb-area -->
+<section class="breadcrumb-area d-flex align-items-center" 
+         style="background-image: url('{{ object.get_hero_image }}')">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-xl-12 col-lg-12">
+                <div class="breadcrumb-wrap text-left">
+                    <div class="breadcrumb-title">
+                        <h2>{{ object.title }}</h2>    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- breadcrumb-area-end -->
+
+            <!-- breadcrumb-area-end -->
+
+  <!-- inner-blog -->
+  <section class="inner-blog b-details-p pt-120 pb-105">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="blog-details-wrap">
+            <div class="details__content pb-30">
+           <h2>{{ object.title }}</h2>
+              <div class="meta-info">
+                <ul>
+      <li><i class="fal fa-calendar-alt"></i> {{ object.date_posted|date:"F d, Y" }}</li>
+      <li><i class="far fa-user"></i> by {{ object.author }}</li>
+      <li><i class="fal fa-comments"></i> {{ object.comments.count }} Comments</li>
+                </ul>
+              </div>
+              
+                            <div class="post-content">{{ object.content|safe }}</div>
+              
+              <div class="row">
+                <div class="col-xl-12 col-md-12">
+                  <div class="post__tag">
+                    <h5>Releted Tags</h5>
+                        <ul>
+                    {% for tag in object.tags.all %}
+                    <li>
+                      <a href="{% url 'blog-by-tag' tag.id %}">{{ tag.name }}</a>
+                    </li>
+                    {% endfor %}
+                  </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            
+            <div class="posts_navigation pt-35 pb-35">
+              <div class="row align-items-center">
+                <div class="col-xl-4 col-md-5">
+                {% if object.get_previous_by_date_posted %}
+              <div class="prev-link">
+                    <span>Prev Post</span>
+                    <h4>
+                      <a href="{% url 'post-detail' object.get_previous_by_date_posted.id %}">
+                        {{ object.get_previous_by_date_posted.title }}
+                      </a>
+                    </h4>
+                  </div>
+                   {% endif %}
+                </div>
+                <div class="col-xl-4 col-md-2 text-left text-md-center">
+                  <a href="{% url 'blog' %}" class="blog-filter">
+                    <img src="{% static 'img/icon/c_d01.png' %}" alt="Blog Home" />
+                  </a>
+                </div>
+                <div class="col-xl-4 col-md-5">
+                  {% if object.get_next_by_date_posted %}
+                  <div class="next-link text-right">
+                    <span>Next Post</span>
+                    <h4>
+                      <a href="{% url 'post-detail' object.get_next_by_date_posted.id %}">
+                        {{ object.get_next_by_date_posted.title }}
+                      </a>
+                    </h4>
+                  </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+
+            <!-- Related Posts Section -->
+            <div class="related__post mt-45 mb-85">
+              <div class="post-title">
+                <h4>Related Post</h4>
+              </div>
+              <div class="row">
+              {% for related in related_posts %}
+                <div class="col-md-6">
+                  <div class="related-post-wrap mb-30">
+                    <div class="post-thumb">
+                      <a href="{% url 'post-detail' related.id %}">
+                        <img src="{{ related.get_hero_image }}" alt="{{ related.title }}" />
+                      </a>
+                    </div>
+                    <div class="rp__content">
+                      <h3>
+                        <a href="{% url 'post-detail' related.id %}">
+                          {{ related.title }}
+                        </a>
+                      </h3>
+                      <p>{{ related.content|safe|truncatewords:20 }}</p> 
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+
+              </div>
+            </div>
+
+
+            
+            <div class="comment__wrap pb-45">
+              <div class="comment__wrap-title">
+                <h5>Comments ({{ object.comments.count }})</h5>
+              </div>
+              {% for comment in comments %}
+              <div class="single__comment mb-35">
+                <div class="comments-avatar">
+      <!-- Display the user's profile image with fixed size -->
+      <img 
+  class="rounded-circle comments-avatar-img" 
+  src="{{ comment.user.profile.image.url|default:'img/default_avatar.png' }}" 
+  alt="{{ comment.user.username }}" 
+  style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%;">
+
+    </div>
+                <div class="comment-text">
+
+                  <div class="avatar-name mb-15">
+                    <h6>{{ comment.user.username }}</h6>
+                    <span>{{ comment.created_at|date:"F d, Y" }}</span>
+                       <a href="#" class="comment-reply" data-parent-id="{{ comment.id }}">
+          <i class="fas fa-reply"></i> Reply
+        </a>
+                  </div>
+                <p>{{ comment.content }}</p>
+                </div>
+              </div>
+
+              
+{% for reply in comment.replies.all %}
+<div class="single__comment children mb-35">
+  <div class="comments-avatar">
+    <img
+      class="rounded-circle comments-avatar-img"
+      src="{{ reply.user.profile.image.url|default:'img/default_avatar.png' }}"
+      alt="{{ reply.user.username }}"
+      style="
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 50%;
+      "
+    />
+  </div>
+  <div class="comment-text">
+    <div class="avatar-name mb-15">
+      <h6>{{ reply.user.username }}</h6>
+      <span>{{ reply.created_at|date:"F d, Y" }}</span>
+    
+    </div>
+    <p>{{ reply.content }}</p>
+    {% include 'comments/replies.html' with comments=reply.replies.all %}
+  </div>
+</div>
+{% endfor %}
+
+
+
+
+                 {% endfor %}
+            </div>
+
+
+            <div id="comments" class="comments-area mt-45">
+              <div id="respond" class="comment-respond">
+              <h3 id="reply-title" class="comment-reply-title">Leave a Reply</h3>
+              <form action="{% url 'add-comment' object.id %}" method="post" class="comment-form">
+                {% csrf_token %}
+                <textarea name="content" cols="45" rows="5" placeholder="Write your comment here..." required></textarea>
+                <input type="hidden" name="parent_id" id="parent_id" value="">
+                <p class="form-submit">
+                  <input type="submit" value="Post Comment" class="submit">
+                </p>
+              </form>
+            </div>
+              <!-- #respond -->
+            </div>
+          </div>
+        </div>
+        <!-- #right side -->
+        <div class="col-sm-12 col-md-12 col-lg-4">
+          <aside class="sidebar-widget">
+            
+            <section
+              id="custom_html-5"
+              class="widget_text widget widget_custom_html"
+            >
+              <h2 class="widget-title">Follow Us</h2>
+              <div class="textwidget custom-html-widget">
+                <div class="widget-social">
+            
+                  <a href="https://www.instagram.com/skyhigh.inter/"><i class="fab fa-instagram"></i></a>
+             
+                </div>
+              </div>
+            </section>
+
+
+            <section id="categories-1" class="widget widget_categories">
+              <h2 class="widget-title">Categories</h2>
+              <ul>
+                {% for category in categories %}
+                <li>
+                  <a href="{% url 'blog-by-category' category.id %}">{{ category.name }}</a>
+                  ({{ category.posts.count }})
+                </li>
+                {% endfor %}
+              </ul>
+            </section>
+
+
+            <section id="recent-posts-4" class="widget widget_recent_entries">
+              <h2 class="widget-title">Recent Posts</h2>
+              <ul>
+                {% for recent in recent_posts %}
+                <li>
+                  <a href="{% url 'post-detail' recent.id %}">{{ recent.title }}</a>
+                  <span class="post-date">{{ recent.date_posted|date:"F d, Y" }}</span>
+                </li>
+                {% endfor %}
+              </ul>
+            </section>
+
+
+            <section id="tag_cloud-1" class="widget widget_tag_cloud">
+              <h2 class="widget-title">Tag</h2>
+              <div class="tagcloud">
+                {% for tag in tags %}
+                  <a 
+                    href="{% url 'blog-by-tag' tag.id %}" 
+                    class="tag-cloud-link {% if tag.id == tag.id %}active-tag{% endif %}"
+                  >
+                    {{ tag.name }}
+                  </a>
+                  {% endfor %}
+              </div>
+            </section>
+
+          </aside>
+        </div>
+        <!-- #right side end -->
+      </div>
+    </div>
+  </section>
+  <!-- inner-blog-end -->
+
+  <!-- newslater-area -->
+
+  <!-- newslater-aread-end -->
+</main>
+<!-- main-area-end -->
+
+<!-- JavaScript for comment reply functionality -->
+<script>
+  document.querySelectorAll('.comment-reply').forEach(button => {
+    button.addEventListener('click', function (event) {
+      event.preventDefault();
+      const parentId = this.getAttribute('data-parent-id');
+      document.getElementById('parent_id').value = parentId;
+      document.querySelector('#respond textarea').focus();
+    });
+  });
+</script>
+
+{% endblock %}

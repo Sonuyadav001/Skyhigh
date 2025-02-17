@@ -1,0 +1,167 @@
+{% extends 'base/base.html' %} {% block content %}
+
+<!-- main-area -->
+<main>
+  <!-- search-popup -->
+  <div
+    class="modal fade bs-example-modal-lg search-bg popup1"
+    tabindex="-1"
+    role="dialog"
+  >
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content search-popup">
+        <div class="text-center">
+          <a href="#" class="close2" data-dismiss="modal" aria-label="Close"
+            >× close</a
+          >
+        </div>
+        <div class="row search-outer">
+          <div class="col-md-11">
+            <input type="text" placeholder="Search for products..." />
+          </div>
+          <div class="col-md-1 text-right">
+            <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /search-popup -->
+
+
+  <!-- breadcrumb-area -->
+
+
+  <!-- breadcrumb-area-end -->
+  <!-- service-details-area -->
+  <div class="about-area5 about-p p-relative">
+    <div class="container pt-120 pb-90">
+      <div class="row">
+        <!-- #right side -->
+        <div class="col-sm-12 col-md-12 col-lg-4 order-1">
+          <aside class="sidebar services-sidebar">
+            <!-- Category Widget -->
+            <div class="sidebar-widget categories">
+              <div class="widget-content">
+                <!-- Services Category -->
+                <ul class="services-categories">
+                  <li
+                    class="{% if current_service == 'skincare' %}active{% endif %}"
+                  >
+                    <a href="{% url 'services_detail' 'skincare' %}"
+                      >Skincare Products</a
+                    >
+                  </li>
+                  <li
+                    class="{% if current_service == 'haircare' %}active{% endif %}"
+                  >
+                    <a href="{% url 'services_detail' 'haircare' %}"
+                      >Hair Care Products</a
+                    >
+                  </li>
+                  <li
+                    class="{% if current_service == 'bodycare' %}active{% endif %}"
+                  >
+                    <a href="{% url 'services_detail' 'bodycare' %}"
+                      >Body Care Products</a
+                    >
+                  </li>
+
+                  <li
+                    class="{% if current_service == 'babyandsensitiveskin' %}active{% endif %}"
+                  >
+                    <a href="{% url 'services_detail' 'babyandsensitiveskin' %}"
+                      >Baby & Sensitive Skin Products</a
+                    >
+                  </li>
+
+                  <li
+                    class="{% if current_service == 'personalcare' %}active{% endif %}"
+                  >
+                    <a href="{% url 'services_detail' 'personalcare' %}"
+                      >Personal Care & Hygiene Products</a
+                    >
+                  </li>
+
+                  <li
+                    class="{% if current_service == 'custom-formulation-services' %}active{% endif %}"
+                  >
+                    <a
+                      href="{% url 'services_detail' 'custom-formulation-services' %}"
+                      >Custom Formulation Services</a
+                    >
+                  </li>
+
+                  <li
+                    class="{% if current_service == 'packaging-solutions' %}active{% endif %}"
+                  >
+                    <a href="{% url 'services_detail' 'packaging-solutions' %}"
+                      >Packaging Solutions</a
+                    >
+                  </li>
+
+                  <li
+                    class="{% if current_service == 'regulatory-legal-services' %}active{% endif %}"
+                  >
+                    <a
+                      href="{% url 'services_detail' 'regulatory-legal-services' %}"
+                      >Regulatory & Legal Services</a
+                    >
+                  </li>
+
+                  <li
+                    class="{% if current_service == 'after-sales-support' %}active{% endif %}"
+                  >
+                    <a href="{% url 'services_detail' 'after-sales-support' %}"
+                      >After-Sales Support</a
+                    >
+                  </li>
+
+                  <!-- Add more services dynamically -->
+                </ul>
+              </div>
+            </div>
+
+            <!--Brochures Box-->
+            <div class="brochures-box">
+              <div class="inner">
+                <h4>Download Brochures</h4>
+                <div class="text">
+                  Pleasure and praising pain was born and I will give you a
+                  complete account.
+                </div>
+                <a class="theme-btn btn-style-one" href="#"
+                  ><span class="btn-title"
+                    ><i class="fa fa-file-pdf"></i> Info Company</span
+                  ></a
+                >
+                <a class="theme-btn btn-style-one" href="#"
+                  ><span class="btn-title"
+                    ><i class="fa fa-file-pdf"></i> Brochure Newest</span
+                  ></a
+                >
+              </div>
+            </div>
+          </aside>
+        </div>
+        <!-- #right side end -->
+
+        <div class="col-lg-8 col-md-12 col-sm-12 order-2">
+          <div class="service-detail">
+            <div class="content-box">
+              {% if detail_template %} {% include detail_template %} {% else %}
+              <p>No details available for this service.</p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- service-details-area-end -->
+
+  <!-- newslater-aread-end -->
+  {% include 'main/newslater_area.html' %}
+</main>
+
+{% endblock %}

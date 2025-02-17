@@ -1,0 +1,65 @@
+{% extends 'base/base.html' %} 
+{% load static %}
+{% block content %}
+<main>
+  <!-- breadcrumb-area -->
+  <section class="breadcrumb-area d-flex align-items-center" style="background-image:url({% static 'img/background/brand.jpg' %});">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-xl-12 col-lg-12">
+          <div class="breadcrumb-wrap text-left">
+            <div class="breadcrumb-title">
+              <h2>Our Brands</h2>
+              <div class="breadcrumb-wrap">
+        
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- breadcrumb-area-end -->
+
+  <section id="blog" class="blog-area p-relative pt-120 pb-90 fix" style="background: #000;">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-12">
+          <h2 class="text-center text-white">Our Brands</h2><br>
+        </div>
+      </div>
+      <div class="row">
+        {% for brand in brands %}
+        <div class="col-lg-4 col-md-6">
+          <div class="single-post2 mb-30 wow fadeInDown animated" data-animation="fadeInDown" data-delay=".{{ forloop.counter }}s">
+            <div class="blog-thumb2">
+              <a href="{% url 'brand_detail' brand.id %}">
+                <div class="logo-container">
+                  {% if brand.logo and brand.logo.url %}
+                      <img src="{{ brand.logo.url }}" alt="{{ brand.name }}" class="brand-logo">
+                  {% else %}
+                      <img src="{% get_media_prefix %}brand_images/default.png" alt="{{ brand.name }}" class="brand-logo">
+                  {% endif %}
+                </div>
+              </a>
+            </div>
+            <div class="blog-content2">
+              <h4 class="brand-title">
+                <a href="{% url 'brand_detail' brand.id %}">{{ brand.name|truncatechars:30 }}</a>
+              </h4>
+              <p class="brand-description">{{ brand.description|safe|truncatechars:45 }}</p>
+              <div class="blog-btn">
+                <a href="{% url 'brand_detail' brand.id %}">
+                  <i class="fas fa-angle-right"></i> Learn More
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</main>
+{% include 'main/newslater_area.html' %}
+{% endblock %}
